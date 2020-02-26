@@ -2,6 +2,7 @@
 1. docker build -t danlavrushko/fakerapi:1.0 .
 1. docker run --rm -it -p 8080:80 danlavrushko/fakerapi:1.0
 1. docker push danlavrushko/fakerapi:1.0
+1. docker image ls danlavrushko/fakerapi
 
 Access this repository: http://bit.ly/aspnetcoredocker
 
