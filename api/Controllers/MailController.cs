@@ -12,7 +12,7 @@ namespace api.Controllers
     [Route("[action]")]
     public class MailController : Controller
     {
-        public const string MAIL_HOST = "localhost";
+        public const string MAIL_HOST = "mail";
         public const int MAIL_PORT = 1025;
 
         [HttpPost]
