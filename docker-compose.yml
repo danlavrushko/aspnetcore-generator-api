@@ -1,0 +1,10 @@
+version: '3.7'
+
+services: 
+  generator:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: danlavrushko/fakerapi:1.1
+    ports:
+      - "8080:80"
