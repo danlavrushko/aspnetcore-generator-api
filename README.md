@@ -4,6 +4,14 @@
 1. docker push danlavrushko/fakerapi:1.0
 1. docker image ls danlavrushko/fakerapi
 
+# Steps to deploy to k8s cluster on GKE
+1. kubectl create deployment fakerapi --image=danlavrushko/fakerapi:alpine
+1. kubectl proxy
+1. kubectl expose deployment fakerapi --port=8080 --target-port=80 --type="LoadBalancer" # exposing service on port 8080, application running on 80 in a pod
+
+1. https://codelabs.developers.google.com/codelabs/cloud-kubernetes-aspnetcore/index.html
+1. https://kubernetes.io/docs/tutorials/kubernetes-basics/deploy-app/deploy-interactive/
+
 Access this repository: http://bit.ly/aspnetcoredocker
 
 ## Branch to course mapping
