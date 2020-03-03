@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fakerapi
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: fakerapi
+  template:
+    metadata:
+      labels:
+        app: fakerapi
+    spec:
+      containers:
+      - name: fakerapi
+        image: danlavrushko/fakerapi:alpine
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: fakerapi
+spec:
+  selector:
+    app: fakerapi
+  ports:
+  - port: 8080
+    protocol: TCP
+    targetPort: 80
