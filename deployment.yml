@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: fakerapi
 spec:
-  replicas: 5
+  replicas: 1
   selector:
     matchLabels:
       app: fakerapi
@@ -14,9 +14,16 @@ spec:
     spec:
       containers:
       - name: fakerapi
-        image: danlavrushko/fakerapi:alpine
+        image: danlavrushko/fakerapi:alpine-1.0.1
         ports:
         - containerPort: 80
+        volumeMounts:
+          - name: config-volume
+            mountPath: /publish/config
+      volumes:
+        - name: config-volume
+          configMap: 
+            name: app-config
 ---
 apiVersion: v1
 kind: Service
